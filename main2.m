@@ -112,7 +112,11 @@ Fext = computeF(n_i,n_dof,Fdata);
 [u,R] = solveSys(vL,vR,uR,KG,Fext);
 
 % Compute strain and stresses
-[eps,sig] = computeStrainStressBar(n_d,n_el,u,Td,x,Tn,mat,Tmat);
+[eps,sig, E_e, l_e] = computeStrainStressBar(n_d,n_el,u,Td,x,Tn,mat,Tmat);
+
+%% Critical stress for buckling.
+%element by element products so sig_cr es ia vector.
+sig_cr = pi^2*E_e.*Tmat(:,4)./((l_e.^2).*Tmat(:,2));
 
 %% POSTPROCESS
 
@@ -127,3 +131,13 @@ plotStrainStress(n_d,sig,x,Tn,{'Stress';'(Pa)'});
 
 % Plot stress in defomed mesh
 plotBarStressDef(x,Tn,u,sig,1)
+
+%% Thermal effects without external forces
+
+T1 = 10;
+T2 = -5;
+
+eps_therm_1 = Tmat(:,3)*T1;
+eps_therm_2 = Tmat(:,3)*T2;
+
+

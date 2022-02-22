@@ -1,4 +1,4 @@
-function [eps,sig] = computeStrainStressBar(n_d,n_el,u,Td,x,Tn,mat,Tmat)
+function [eps,sig, E_e, l_e] = computeStrainStressBar(n_d,n_el,u,Td,x,Tn,mat,Tmat)
 %--------------------------------------------------------------------------
 % The function takes as inputs:
 %   - Dimensions:  n_d        Problem's dimensions
