@@ -120,6 +120,17 @@ sig_cr = pi^2*E_e.*Tmat(:,4)./((l_e.^2).*Tmat(:,2));
 
 %% POSTPROCESS
 
+%Node absolute displacements
+total_disp = zeros(n,1);
+i=1;j=1;
+while j<=n
+    total_disp(j,1) = sqrt(u(i,1)^2+u((i+1),1)^2);
+    i = i+2;
+    j=j+1;
+end
+
+xlswrite('table.xls', sig,'Hoja1', 'B2');
+xlswrite('table.xls', sig_cr,'Hoja1', 'F2');
 % Plot displacements
 plotDisp(n_d,n,u,x,Tn,1);
 
