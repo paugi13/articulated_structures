@@ -30,8 +30,8 @@ plot(X(Tn)',Y(Tn)','-k','linewidth',0.5);
 patch(X(Tn)'+scale*ux(Tn)',Y(Tn)'+scale*uy(Tn)',[sig';sig'],'edgecolor','flat','linewidth',2);
 
 % Add axes labels
-xlabel('x (m)')
-ylabel('y (m)')
+xlabel('x (mm)')
+ylabel('y (mm)')
 
 % Add title
 title(sprintf('Deformed structure (scale = %g)',scale));
