@@ -1,2 +1,2 @@
 # articulated_structures
-# Program to calculate 2D structures fiven its geometry and section and mat caractheristics
+# Program to calculate 2D structures given its geometry and section and mat caractheristics
