@@ -116,14 +116,14 @@ Fext = computeF(n_i,n_dof,Fdata);
 
 %% POSTPROCESS
 
-% % Plot displacements
-% plotDisp(n_d,n,u,x,Tn,1);
-% 
-% % Plot strains
-% plotStrainStress(n_d,eps,x,Tn,{'Strain'});
-% 
-% % Plot stress
-% plotStrainStress(n_d,sig,x,Tn,{'Stress';'(Pa)'});
-% 
-% % Plot stress in defomed mesh
-% plotBarStressDef(x,Tn,u,sig,1)
+% Plot displacements
+plotDisp(n_d,n,u,x,Tn,1);
+
+% Plot strains
+plotStrainStress(n_d,eps,x,Tn,{'Strain'});
+
+% Plot stress
+plotStrainStress(n_d,sig,x,Tn,{'Stress';'(Pa)'});
+
+% Plot stress in defomed mesh
+plotBarStressDef(x,Tn,u,sig,1)
