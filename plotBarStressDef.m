@@ -13,8 +13,8 @@ function plotBarStressDef(x,Tn,u,sig,scale)
 n_d = size(x,2);
 X = x(:,1);
 Y = x(:,2);
-ux = u(1:n_d:end);
-uy = u(2:n_d:end);
+ux = u(1:n_d:end);  %X displacements in one vector.
+uy = u(2:n_d:end);  %Y displacements in one vector.
 
 % Initialize figure
 figure('color','w');
