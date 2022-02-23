@@ -129,8 +129,9 @@ while j<=n
     j=j+1;
 end
 
-xlswrite('table.xls', sig,'Hoja1', 'B2');
-xlswrite('table.xls', sig_cr,'Hoja1', 'F2');
+% xlswrite('table.xls', sig,'Hoja1', 'B2');
+% xlswrite('table.xls', sig_cr,'Hoja1', 'F2');
+
 % Plot displacements
 plotDisp(n_d,n,u,x,Tn,1);
 
@@ -151,4 +152,7 @@ T2 = -5;
 eps_therm_1 = Tmat(:,3)*T1;
 eps_therm_2 = Tmat(:,3)*T2;
 
+x_t = new_x(x,u,n);
+F_data_t = 0;
+fixNod_t = ;
 
