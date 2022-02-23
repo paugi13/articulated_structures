@@ -152,7 +152,38 @@ T2 = -5;
 eps_therm_1 = Tmat(:,3)*T1;
 eps_therm_2 = Tmat(:,3)*T2;
 
-x_t = new_x(x,u,n);
-F_data_t = 0;
-fixNod_t = ;
+
+%Considering external forces. 
+
+eps_1 = eps + eps_therm_1;
+eps_2 = eps + eps_therm_2;
+
+sig_1 = E_e.*eps_1;
+sig_2 = E_e.*eps_2;
+
+plotBarStressDef(x,Tn,u,sig_1,1);
+plotBarStressDef(x,Tn,u,sig_2,1);
+
+%Considering no external forces. 
+Fdata = [1 1 0];
+fixNod = [1 1 0;
+    1 2 0;
+    5 9 0;
+    5 10 0;
+];
+
+Fext_therm = computeF(n_i,n_dof,Fdata);
+[u_therm,R_therm] = solveSys(vL,vR,uR,KG,Fext_therm);
+[eps_B,sig_B, E_e, l_e] = computeStrainStressBar(n_d,n_el,u_therm,Td,x,Tn,mat,Tmat);
+
+eps_B1 = eps_B + eps_therm_1;
+eps_B2 = eps_B + eps_therm_2;
+
+sig_B1 = E_e.*eps_B1;
+sig_B2 = E_e.*eps_B2;
+
+%Problem: All stresses are the same because of the thermal effects and no
+%external forces. 
+% plotBarStressDef(x,Tn,u,sig_B1,1);
+% plotBarStressDef(x,Tn,u,sig_B2,1);
 
