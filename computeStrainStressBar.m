@@ -71,7 +71,7 @@ sig = zeros(n_el, 1);
 
 for i = 1:n_el
     eps(i,1) = 1/l_e(i)*[-1 0 1 0]*u_e_local(:, 1, i);
-    sig(i,1) = E_e(i)*eps(i,1);
+    sig(i,1) = E_e(i)*eps(i);
 end
 
 
