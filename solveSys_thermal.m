@@ -20,11 +20,11 @@ F_ext_L = zeros(size(vL,1), 1);
 F_ext_R = zeros(size(vR,1), 1);
 
 for i = 1:size(vR,1)
-    F_ext_R(i, 1) = Fext(vR(i,1),1)-Ft(vR(i,1),1);   
+    F_ext_R(i, 1) = Fext(vR(i,1),1)+Ft(vR(i,1),1);   
 end
 
 for i = 1:size(vL,1)
-    F_ext_L(i, 1) = Fext(vL(i,1),1)-Ft(vL(i,1),1);
+    F_ext_L(i, 1) = Fext(vL(i,1),1)+Ft(vL(i,1),1);
 end
 
 KLL = zeros(size(vL, 1));

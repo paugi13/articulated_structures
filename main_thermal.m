@@ -15,7 +15,7 @@ Young = 75000;
 Area = 120;
 thermal_coeff = 23e-6;
 Inertia = 1400;
-Temperature_increment = 0; 
+Temperature_increment = -10; 
 
 
 %% PREPROCESS
@@ -56,9 +56,7 @@ Tn = [1 2;
 %  Fdata(k,1) = node at which the force is applied
 %  Fdata(k,2) = DOF (direction) at which the force is applied
 %  Fdata(k,3) = force magnitude in the corresponding DOF
-Fdata = [2 4 3*F;
-    3 6 2*F;
-    4 8 F;
+Fdata = [1 1 0
 ];
 % Fix nodes matrix creation
 %  fixNod(k,1) = node at which some DOF is prescribed
