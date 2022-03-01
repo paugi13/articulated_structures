@@ -11,10 +11,10 @@ function plotBarStressDef(x,Tn,u,sig,scale)
 
 % Precomputations
 n_d = size(x,2);
-X = x(:,1);
-Y = x(:,2);
-ux = u(1:n_d:end);  %X displacements in one vector.
-uy = u(2:n_d:end);  %Y displacements in one vector.
+X = x(:,1)/1000;
+Y = x(:,2)/1000;
+ux = u(1:n_d:end)/1000;  %X displacements in one vector.
+uy = u(2:n_d:end)/1000;  %Y displacements in one vector.
 
 % Initialize figure
 figure('color','w');
@@ -30,8 +30,8 @@ plot(X(Tn)',Y(Tn)','-k','linewidth',0.5);
 patch(X(Tn)'+scale*ux(Tn)',Y(Tn)'+scale*uy(Tn)',[sig';sig'],'edgecolor','flat','linewidth',2);
 
 % Add axes labels
-xlabel('x (mm)')
-ylabel('y (mm)')
+xlabel('x (m)')
+ylabel('y (m)')
 
 % Add title
 title(sprintf('Deformed structure (scale = %g)',scale));
@@ -40,6 +40,6 @@ title(sprintf('Deformed structure (scale = %g)',scale));
 caxis([min(sig(:)),max(sig(:))]);
 cbar = colorbar;
 set(cbar,'Ticks',linspace(min(sig(:)),max(sig(:)),5));
-title(cbar,{'Stress';'(Pa)'});
+title(cbar,{'Stress';'(MPa)'});
 
 end
