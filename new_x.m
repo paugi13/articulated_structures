@@ -1,6 +1,5 @@
 function [x_t] = new_x(x,u,n)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%New_x function
 x_t = zeros(n, 2);
 j=1;
 while j<=n
